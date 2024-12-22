@@ -1,0 +1,37 @@
+pluginManagement {
+    def flutterSdkPath = {
+        def properties = new Properties()
+        file("local.properties").withInputStream { properties.load(it) }
+        def flutterSdkPath = properties.getProperty("flutter.sdk")
+        assert flutterSdkPath != null, "flutter.sdk not set in local.properties"
+        return flutterSdkPath
+    }
+    settings.ext.flutterSdkPath = flutterSdkPath()
+
+    // Include the Flutter tools from the Flutter SDK
+    includeBuild("${settings.ext.flutterSdkPath}/packages/flutter_tools/gradle")
+
+    // Repositories for dependencies
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    // Apply the Flutter plugin loader for managing Flutter plugins
+    id "dev.flutter.flutter-plugin-loader" version "1.0.0"
+    
+    // Use the latest stable Android Gradle plugin version
+    id "com.android.application" version "8.0.0" apply false  // Updated to the latest stable version
+
+    // FlutterFire configuration for Firebase
+    id "com.google.gms.google-services" version "4.3.15" apply false  // Firebase configuration, keeping it as is
+
+    // Kotlin plugin for Android
+    id "org.jetbrains.kotlin.android" version "1.8.0" apply false  // Updated Kotlin version to a more recent stable release
+}
+
+// Include the app module for the build
+include ":app"

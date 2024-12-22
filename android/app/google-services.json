@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "350185165154",
+    "project_id": "rsc-motorshop-dcac9",
+    "storage_bucket": "rsc-motorshop-dcac9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350185165154:android:36efd6e2f489c719149c3b",
+        "android_client_info": {
+          "package_name": "com.example.rsc_motorshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxhXz81btMeOFvwCREzqM7E-LBoVjlhHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
