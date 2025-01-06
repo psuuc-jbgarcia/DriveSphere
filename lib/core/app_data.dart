@@ -10,10 +10,40 @@ import 'package:rsc_motorshop/src/model/bottom_navy_bar_item.dart';
 
 class AppData {
   const AppData._();
-
-  static const String modifiedDummyText = '1';
-  static List<Product> products = [
+  static List<Product> mostBuyItems = [
      Product(
+      name: 'Yamaha Nmax',
+      price: 151000,
+      isAvailable: true,
+      off: 0,
+      quantity: 0,
+      images: [
+        'assets/images/yamahaNmaxDark.webp',
+        'assets/images/yamahaNmaxGrey.webp',
+        'assets/images/yamahaNmaxSilver.webp',
+      ],
+      isFavorite: true,
+      rating: 4,
+      type: ProductType.yamahamotors,
+      about: 'The Yamaha Nmax offers superb handling and a comfortable ride, perfect for everyday commutes with a 155cc engine.'
+    ),
+        Product(
+      name: 'ScrawHelmetBR',
+      price: 3500,
+      isAvailable: true,
+      off: 0,
+      quantity: 0,
+      images: [
+        'assets/images/ScrawHelmetBR.jpg',
+        'assets/images/ScrawHelmetBW.jpg',
+        'assets/images/ScrawHelmetBY.jpg',
+      ],
+      isFavorite: false,
+      rating: 3,
+      type: ProductType.helmets,
+      about: 'The Scraw helmet offers both safety and comfort, perfect for motorcycle enthusiasts who enjoy long rides.'
+    ),
+    Product(
       name: 'Yamaha Aerox 155',
       price: 145000,
       isAvailable: true,
@@ -29,6 +59,46 @@ class AppData {
       type: ProductType.yamahamotors,
       about: 'A sleek, stylish, and powerful scooter, ideal for city riding with a 155cc engine for great performance.'
     ),
+       Product(
+      name: 'Honda Civic',
+      price: 1500000,
+      isAvailable: true,
+      off: 0,
+      quantity: 0,
+      images: [
+        'assets/images/hondacivicMetallic.webp',
+        'assets/images/hondacivicRed.webp',
+        'assets/images/hondacivicWhite.webp',
+      ],
+      isFavorite: false,
+      rating: 5,
+      type: ProductType.hondaCars,
+      about: 'A luxury sedan with an advanced 1.5L turbo engine, offering a blend of performance, comfort, and technology.'
+    ),
+        Product(
+      name: 'Rizoma Stealth Mirrors',
+      price: 8500,
+      isAvailable: true,
+      off: 0,
+      quantity: 0,
+      images: [
+        'assets/images/rizoma_stealth_mirrors_red.jpg',
+        'assets/images/rizoma_stealth_mirrors_violet.jpg',
+        'assets/images/rizoma_stealth_mirrors_green.jpg',
+      ],
+      isFavorite: false,
+      rating: 2,
+      type: ProductType.motorparts,
+      about: 'Stylish and durable motorcycle mirrors, designed to enhance your bike’s appearance with a sleek and modern look.'
+    ),
+  ];
+
+
+
+
+  static const String modifiedDummyText = '1';
+  static List<Product> products = [
+     
     Product(
       name: 'Yamaha Nmax',
       price: 151000,
@@ -487,16 +557,24 @@ static List<ProductCategory> categories = [
     ),
   ];
 
-  static List<RecommendedProduct> recommendedProducts = [
-    RecommendedProduct(
-      imagePath: "",
-      cardBackgroundColor: const Color(0xFFEC6813),
-    ),
-    RecommendedProduct(
-      imagePath: "",
-      cardBackgroundColor: const Color(0xFF3081E1),
-      buttonBackgroundColor: const Color(0xFF9C46FF),
-      buttonTextColor: Colors.white,
-    ),
-  ];
+static List<RecommendedProduct> recommendedProducts = [
+  RecommendedProduct(
+    imagePath: "assets/images/yamahaAeroxBlack.webp", // Image for Yamaha Motors
+    cardBackgroundColor: const Color(0xFFEC6813),
+    buttonBackgroundColor: const Color(0xFF3081E1), // Button color
+    buttonTextColor: Colors.white, // Text color for the button
+    productName: "Yamaha Aerox 155", // Product name from Yamaha Motors
+    productPrice: "145,000", // Product price
+  ),
+  RecommendedProduct(
+    imagePath: "assets/images/hondaCivicMetallic.webp", // Image for Honda Cars
+    cardBackgroundColor: const Color(0xFF3081E1),
+    buttonBackgroundColor: const Color(0xFF9C46FF),
+    buttonTextColor: Colors.white,
+    productName: "Honda Civic", // Product name from Honda Cars
+    productPrice: "1,500,000", // Product price
+  ),
+
+];
+
 }

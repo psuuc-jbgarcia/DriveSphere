@@ -79,6 +79,105 @@ class ProductListScreen extends StatelessWidget {
       ),
     );
   }
+Widget mostBuyItemsSection(BuildContext context) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Padding(
+        padding: const EdgeInsets.only(top: 20),
+        child: Text(
+          "Most Bought Items",
+          style: Theme.of(context)
+              .textTheme
+              .headlineMedium
+              ?.copyWith(fontWeight: FontWeight.bold),
+        ),
+      ),
+      const SizedBox(height: 10),
+      SizedBox(
+        height: 220, // Height adjusted for better layout
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: AppData.mostBuyItems.length,
+          itemBuilder: (_, index) {
+            final product = AppData.mostBuyItems[index];
+            return Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Container(
+                  width: 160, // Adjusted width for balance
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.orange.shade100,
+                        Colors.orange.shade200,
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 8,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        borderRadius: const BorderRadius.vertical(
+                          top: Radius.circular(15),
+                        ),
+                        child: Image.asset(
+                          product.images[0],
+                          height: 120,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Text(
+                          product.name,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        "₱${product.price}",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(
+                              color: Colors.green,
+                              fontWeight: FontWeight.w600,
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    ],
+  );
+}
 
   Widget _recommendedProductListView(BuildContext context) {
     return SizedBox(
@@ -223,9 +322,13 @@ class ProductListScreen extends StatelessWidget {
                         color: Colors.grey[600],
                       ),
                 ),
+                
                 _recommendedProductListView(context),
+                                              mostBuyItemsSection(context), // Add the section here
+
                 _topCategoriesHeader(context),
                 _topCategoriesListView(),
+
                 GetBuilder<ProductController>(
                   builder: (controller) {
                     return ProductGridView(

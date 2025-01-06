@@ -149,7 +149,7 @@ class ProductDetailScreen extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            "₱${product.price}",
+                            "${product.price}",
                             style: Theme.of(context).textTheme.displayLarge?.copyWith(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
